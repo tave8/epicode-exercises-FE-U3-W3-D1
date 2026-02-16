@@ -58,14 +58,13 @@ var concatenateStrings = function (s1, s2) {
 7) Cos'è un Type Union e come si scrive?
 
     Sia x una variabile, si definisce X il tipo di x, dove X è l'unione (OR logico)
-    di [X1, X2... XN], dove XN è un tipo o una Type Union.
-    In breve, una Type Union è l'unione di N tipi (con N > 0), che a loro volta possono essere
-    tipi semplici o Type Union.
-    La Type Union corrisponde quindi all'operazione di OR logico, i cui operandi sono tipi.
+    di [X1, X2... XN], dove XN è un tipo, una Type Union o un valore letterale.
+    In breve, una Type Union è l'unione di N elementi (con N > 0), che a loro volta possono essere
+    tipi semplici, Type Union o valori letterali.
     La sintassi formale di Type Union è:
         type union X = <operando> <operatore?>
         dove:
-            operando: è un tipo o una Type Unione
+            operando: è un tipo, una Type Unione o un valore letterale
             operatore: OR. l'OR, ovviamente, non esiste per l'ultimo operando
 
     Ad esempio, se la variabile x ha tipo X, e X è la Type Union
@@ -87,18 +86,45 @@ var concatenateStrings = function (s1, s2) {
 8) Crea una variabile che possa contenere un numero, null o undefined.
 
 */
+var numberOrElse = null;
+numberOrElse = 23;
+numberOrElse = undefined;
 /*
 
-9) Crea un tipo per rappresentare i giorni della settimana usando union di stringhe letterali.
+
 10) Tipizza il seguente array di numeri nei due modi possibili:
 const numbers = [1, 2, 3]
+*/
+// const numbers: number[] = [1, 2, 3]
+var numbers = [1, 2, 3];
+/*
+
+
 11) Crea una tupla per definire un array di 5 elementi, i primi 3 devono essere stringhe e gli ultimi due numeri.
-12) Qual è la differenza tra type e interface?
-13) Definisci un'interfaccia in TypeScript per un oggetto dotato di proprietà "firstname", "lastname", e "age".
-14) Crea un'interfaccia per un utente con email obbligatoria e telefono opzionale.
-15) Crea un array tipizzato di oggetti "Studente" con nome e voto.
-16) Crea un'interfaccia base "Veicolo" e estendila per creare "Auto".
+
+*/
+var myTuple = ["giuseppe", "hello", "car", 234, 3];
+var studente1 = {
+    nome: "Giuseppe",
+    voto: 100
+};
+var studente2 = {
+    nome: "Maria",
+    voto: 100
+};
+// const studenti: Studente[] = [studente1, studente2]
+// domanda: la sintassi Array<Studente> fa uso di un generics?
+var studenti = [studente1, studente2];
+/*
+
 17) Crea un oggetto che implementi l'interfaccia Auto.
+
+*/
+var auto1 = {
+    modello: "Fiat",
+};
+/*
+
 18) Cosa sono i Generics in TypeScript?
 19) È possibile avere più tipi generici in un'interfaccia?
 20) Crea un'interfaccia generica per una risposta API.
