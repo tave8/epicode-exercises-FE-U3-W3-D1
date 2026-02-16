@@ -214,11 +214,16 @@ const studenti: Array<Studente> = [studente1, studente2]
 
 */
 
+// type numeroRuote 
+// domanda: come validare che AnnoRilascio sia qualcosa del tipo: 
+    // type AnnoRilascio(x) = number && (x < currentYear)
+type AnnoRilascio = number 
+
 interface Veicolo {
   modello: string
   colore: string
   numeroRuote: number
-  annoRilascio: number
+  annoRilascio: AnnoRilascio
 }
 
 interface Auto extends Veicolo {}
@@ -293,13 +298,17 @@ interface MyJsonData {
 }
 
 
-// domanda: typescript esiste solo a compilation time, ma a runtime non esiste.
+// domanda: typescript esiste solo a compilation time, non a runtime.
 // quindi qualsiasi dato che non esiste già nel source code, typescript 
 // non lo può validare. ad esempio validare se il json di un'API si adegua 
 // ad uno schema/interfaccia typescript. quindi typescript non serve 
 // per tutto quello che è asincrono o qualsiasi dato che esiste in memoria 
 // dopo la compilazione. typescript può validare solo i dati che sono in memoria ADESSO
 // nel sorgente, PRIMA della compilazione
+// typescript non mi può aiutare:
+    // fetch/operazioni asincrone
+    // dati che arrivano dall'utente/form
+    // qualsiasi dato che non esiste in memoria al momento della compilazione TS -> JS
 interface ApiResponse {
   response: Response
   json: JSON
