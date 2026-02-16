@@ -67,6 +67,8 @@ const concatenateStrings = (s1: string, s2: string): number => {
 
 /*
 
+domanda: tipo, type union, valore letterale
+
 7) Cos'è un Type Union e come si scrive?
 
     Sia x una variabile, si definisce X il tipo di x, dove X è l'unione (OR logico) 
@@ -76,13 +78,13 @@ const concatenateStrings = (s1: string, s2: string): number => {
     La sintassi formale di Type Union è: 
         type union X = <operando> <operatore?>
         dove: 
-            operando: è un tipo, una Type Unione o un valore letterale
-            operatore: OR. l'OR, ovviamente, non esiste per l'ultimo operando 
+            operando: è un tipo, una Type Union o un valore letterale
+            operatore: OR o AND. l'operatore, ovviamente, non esiste per l'ultimo operando 
 
     Ad esempio, se la variabile x ha tipo X, e X è la Type Union 
     di Y, Z, T, allora si definisce con il seguente pseudo codice:
 
-    type union X = Y OR Z OR T
+    type union X = (Y OR Z) AND T 
     variabile x: X = valore 
 
     Un esempio in TypeScript:
@@ -210,6 +212,8 @@ const studenti: Array<Studente> = [studente1, studente2]
 
 /*
 
+
+
 16) Crea un'interfaccia base "Veicolo" e estendila per creare "Auto".
 
 */
@@ -293,9 +297,24 @@ interface MyJsonData {
     success: boolean 
     errors: string[]
     // domanda: come dire: almeno uno tra item e items deve esistere?
+    // typescript constraint one 
     item?: MyJsonDataObj
     items?: MyJsonDataObj[]
 }
+
+// item = 1 
+// items = 1
+// item + items = 1
+
+
+// {
+//   success: true,
+//   errors: [],
+//   // item: {}
+//   // items: [{
+
+//   // }]
+// }
 
 
 // domanda: typescript esiste solo a compilation time, non a runtime.
@@ -315,6 +334,7 @@ interface ApiResponse {
   data: MyJsonData
 }
 
+// aderenza di modello che dovrebbero arrivare 
 
 /*
 
